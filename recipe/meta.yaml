@@ -1,5 +1,5 @@
 {% set name = "zstandard" %}
-{% set version = "0.8.1" %}
+{% set version = "0.9.0" %}
 {% set sha256hash = "d8df3b40fed5c0a5d15b36e698b0286323170086b2034e5d52465fa3c1ce2429" %}
 
 package:
