@@ -1,6 +1,6 @@
 {% set name = "zstandard" %}
-{% set version = "0.8.1" %}
-{% set sha256hash = "d8df3b40fed5c0a5d15b36e698b0286323170086b2034e5d52465fa3c1ce2429" %}
+{% set version = "0.10.2" %}
+{% set sha256hash = "86c9dee0fe6d4ea5bf394767929fdf5f924d161d9a6d23adcd58a690c5e160b0" %}
 
 package:
   name: {{ name }}
@@ -20,10 +20,9 @@ requirements:
   host:
     - python
     - setuptools
-    - cffi >=1.8
+    - cffi >=1.11
   run:
     - python
-    - cffi >=1.8
 
 about:
   home: https://github.com/indygreg/python-zstandard
@@ -39,3 +38,4 @@ about:
 extra:
   recipe-maintainers:
     - rmax
+    - jcrist
