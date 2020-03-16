@@ -13,7 +13,7 @@ source:
     - 0001-Use-compiler-from-environment.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
