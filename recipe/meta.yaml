@@ -1,5 +1,5 @@
 {% set name = "zstandard" %}
-{% set version = "0.13.0" %}
+{% set version = "0.14.0" %}
 
 package:
   name: {{ name }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e5cbd8b751bd498f275b0582f449f92f14e64f4e03b5bf51c571240d40d43561
+  sha256: 9052398da52e8702cf9929999c8986b0f68b18c793e309cd8dff5cb7863d7652
   patches:
     - 0001-Use-compiler-from-environment.patch
 
@@ -34,7 +34,7 @@ about:
   home: https://github.com/indygreg/python-zstandard
   license: BSD 3-Clause
   license_file: LICENSE
-  summary: "Zstandard bindings for Python"
+  summary: Zstandard bindings for Python
   description: |
     This project provides Python bindings for interfacing with the
     Zstandard compression library. A C extension and CFFI interface are
