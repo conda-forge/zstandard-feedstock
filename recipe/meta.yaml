@@ -20,11 +20,13 @@ requirements:
     - {{ compiler('c') }}
   host:
     - python
+    - cffi >=1.11
     - pip
-    - cffi >=1.8
+    - setuptools
+    - wheel
   run:
     - python
-    - cffi >=1.8
+    - cffi >=1.11
 
 test:
   requires:
@@ -37,13 +39,18 @@ test:
 about:
   home: https://github.com/indygreg/python-zstandard
   license: BSD-3-Clause
-  license_file: LICENSE
+  license_family: BSD
+  license_file:
+    - LICENSE
+    - zstd/LICENSE
+  license_url: https://github.com/indygreg/python-zstandard/blob/main/LICENSE
   summary: Zstandard bindings for Python
   description: |
     This project provides Python bindings for interfacing with the
     Zstandard compression library. A C extension and CFFI interface are
     provided.
   doc_url: https://github.com/indygreg/python-zstandard/blob/master/README.rst#python-zstandard
+  doc_source_url: https://github.com/indygreg/python-zstandard/tree/main/docs
   dev_url: https://github.com/indygreg/python-zstandard
 
 extra:
