@@ -38,7 +38,9 @@ about:
   home: https://github.com/indygreg/python-zstandard
   license: BSD-3-Clause
   lisense_family: BSD
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - zstd/LICENSE
   license_url: https://github.com/indygreg/python-zstandard/blob/main/LICENSE
   summary: Zstandard bindings for Python
   description: |
