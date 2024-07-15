@@ -1,5 +1,5 @@
 {% set name = "zstandard" %}
-{% set version = "0.22.0" %}
+{% set version = "0.23.0" %}
 {% set zstd_version = "1.5.6" %}
 
 package:
@@ -8,13 +8,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8226a33c542bcb54cd6bd0a366067b610b41713b64c9abec1bc4533d69f51e70
+  sha256: b2d8c62d08e7255f68f7a740bae85b3c9b8e5466baa9cbf7f57f1cde0ac6bc09
   patches:
     # https://github.com/indygreg/python-zstandard/commit/518ade454f41ffbad8b9b542f6938cd308653ba2
     - zstd_1.5.6.patch
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
