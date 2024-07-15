@@ -9,9 +9,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: b2d8c62d08e7255f68f7a740bae85b3c9b8e5466baa9cbf7f57f1cde0ac6bc09
-  patches:
-    # https://github.com/indygreg/python-zstandard/commit/518ade454f41ffbad8b9b542f6938cd308653ba2
-    - zstd_1.5.6.patch
 
 build:
   number: 0
