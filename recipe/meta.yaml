@@ -24,6 +24,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
     - cffi >=1.11
     - zstd {{ zstd_version }}
   run:
