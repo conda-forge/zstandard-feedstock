@@ -9,6 +9,9 @@ package:
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: b2d8c62d08e7255f68f7a740bae85b3c9b8e5466baa9cbf7f57f1cde0ac6bc09
+  patches:
+    # until https://github.com/indygreg/python-zstandard/pull/255 is merged
+    - patches/0001-link-zstd-statically.patch
 
 build:
   number: 1
@@ -18,7 +21,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cffi                                   # [build_platform != target_platform]
-    - zstd {{ zstd_version }}                # [build_platform != target_platform]
+    - zstd-static {{ zstd_version }}         # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
@@ -26,13 +29,10 @@ requirements:
     - pip
     - setuptools
     - cffi >=1.11
-    - zstd {{ zstd_version }}
+    - zstd-static {{ zstd_version }}
   run:
     - python
     - cffi >=1.11
-    # The Python bindings use private APIs and are tightly coupled to zstd
-    # https://github.com/indygreg/python-zstandard/blob/0063333790a853360c816101511635865405834f/c-ext/backend_c.c#L149
-    - {{ pin_compatible("zstd", max_pin="x.x.x") }}
 
 test:
   requires:
