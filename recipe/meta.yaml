@@ -18,7 +18,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cffi                                   # [build_platform != target_platform]
-    - zstd {{ zstd_version }}                # [build_platform != target_platform]
+    - zstd-static {{ zstd_version }}         # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
@@ -26,13 +26,10 @@ requirements:
     - pip
     - setuptools
     - cffi >=1.11
-    - zstd {{ zstd_version }}
+    - zstd-static {{ zstd_version }}
   run:
     - python
     - cffi >=1.11
-    # The Python bindings use private APIs and are tightly coupled to zstd
-    # https://github.com/indygreg/python-zstandard/blob/0063333790a853360c816101511635865405834f/c-ext/backend_c.c#L149
-    - {{ pin_compatible("zstd", max_pin="x.x.x") }}
 
 test:
   requires:
