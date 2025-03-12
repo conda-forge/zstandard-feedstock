@@ -37,6 +37,8 @@ requirements:
 test:
   requires:
     - pip
+    # validate that a newer zstd present in the environment doesn't disturb us
+    - zstd 1.5.7
   commands:
     - pip check
   imports:
