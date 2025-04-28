@@ -12,9 +12,10 @@ source:
   patches:
     # until https://github.com/indygreg/python-zstandard/pull/255 is merged
     - patches/0001-link-zstd-statically.patch
+    - patches/0002-Ensure-c-extension-looks-up-symbols-locally.patch  # [linux]
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -41,6 +42,8 @@ test:
     - zstd 1.5.7
   commands:
     - pip check
+    # validate that a newer libzstd.so loaded into memory doesn't conflict us
+    - LD_PRELOAD=$CONDA_PREFIX/lib/libzstd.so python run_test.py  # [linux]
   imports:
     - zstandard
 
