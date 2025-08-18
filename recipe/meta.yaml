@@ -1,5 +1,5 @@
 {% set name = "zstandard" %}
-{% set version = "0.23.0" %}
+{% set version = "0.24.0" %}
 {% set zstd_version = "1.5.6" %}
 
 package:
@@ -8,14 +8,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b2d8c62d08e7255f68f7a740bae85b3c9b8e5466baa9cbf7f57f1cde0ac6bc09
+  sha256: fe3198b81c00032326342d973e526803f183f97aa9e9a98e3f897ebafe21178f
   patches:
     # until https://github.com/indygreg/python-zstandard/pull/255 is merged
     - patches/0001-link-zstd-statically.patch
     - patches/0002-Ensure-c-extension-looks-up-symbols-locally.patch  # [linux]
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
