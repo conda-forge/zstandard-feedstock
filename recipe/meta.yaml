@@ -1,5 +1,6 @@
 {% set name = "zstandard" %}
-{% set version = "0.23.0" %}
+{% set version = "0.24.0" %}
+{% set zstd_version = "1.5.7" %}
 
 package:
   name: {{ name }}
@@ -7,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b2d8c62d08e7255f68f7a740bae85b3c9b8e5466baa9cbf7f57f1cde0ac6bc09
+  sha256: fe3198b81c00032326342d973e526803f183f97aa9e9a98e3f897ebafe21178f
 
 build:
-  number: 3
+  number: 0
 
 requirements:
   build:
@@ -24,19 +25,19 @@ requirements:
     - pip
     - setuptools
     - cffi >=1.11
+    - zstd {{ zstd_version }}
   run:
     - python
     - cffi >=1.11
+    # The Python bindings use private APIs and are tightly coupled to zstd
+    # https://github.com/indygreg/python-zstandard/blob/0063333790a853360c816101511635865405834f/c-ext/backend_c.c#L149
+    - {{ pin_compatible("zstd", max_pin="x.x.x") }}
 
 test:
   requires:
     - pip
-    # validate that a newer zstd present in the environment doesn't disturb us
-    - zstd 1.5.7
   commands:
     - pip check
-    # validate that a newer libzstd.so loaded into memory doesn't conflict us
-    - LD_PRELOAD=$CONDA_PREFIX/lib/libzstd.so python run_test.py  # [linux]
   imports:
     - zstandard
 
