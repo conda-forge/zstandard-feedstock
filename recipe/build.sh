@@ -4,4 +4,4 @@
 if [ $(uname) == Linux ]; then
   export LDSHARED="$CC -shared -pthread"
 fi
-${PYTHON} setup.py install --single-version-externally-managed --record=record.txt
+${PYTHON} setup.py install --system-zstd --single-version-externally-managed --record=record.txt
