@@ -27,5 +27,3 @@ target_platform:
 zip_keys:
 - - python
   - channel_sources
-zstd:
-- '1.5'
