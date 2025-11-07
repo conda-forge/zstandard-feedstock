@@ -14,16 +14,15 @@ source:
   sha256: 7713e1179d162cf5c7906da876ec2ccb9c3a9dcbdffef0cc7f70c3667a205f0b
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: cffi
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - cffi
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
   host:
